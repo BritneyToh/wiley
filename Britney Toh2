@@ -1,0 +1,21 @@
+cd ~
+pwd
+mkdir Algo1
+mkdir -p Algo1{configs,bins,logs,scipts}
+mkdir -p configs{config.config,variables}
+mkdir -p scripts{start.sh,stop.sh,admin.sh}
+mkdir -p logs{today.log}
+cd ~
+ls -ltr
+rm -r Algo1bins
+cd ~
+mkdir -p Algo1{bins}
+mkdir -p logs{oldlogs}
+mkdir -p oldlogs{2019,2018,2017}
+mkdir -p 2017{2017.log}
+mkdir -p 2018{2018.log}
+mkdir -p 2019{2019.log}
+cd ~
+rm -r logs{oldlogs}
+find /home -name*.sh
+history > Britney.220721.module3
