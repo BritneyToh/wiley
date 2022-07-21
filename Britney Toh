@@ -1,0 +1,16 @@
+pwd
+cd /var/log
+cd ..
+pwd
+ls -all
+ls -l
+ls -ltra
+cd /
+cd ~
+ls -ltr
+man ls
+cd /var
+ls -ltr
+uname
+uname -a
+history > Britney210722.module2
