@@ -1,0 +1,109 @@
+##Scripting Exercises
+##Create a simple shell script to tell the user about their session
+vi userdata.sh
+#!/bin/sh
+echo $USER
+echo $pwd
+echo $ ls | wc -l
+echo $ sudo du -a | sort -n -r | head -n 1
+esc
+:wq
+chmod 777 userdata.sh
+./userdata.sh
+
+##Create a directory with a few test files in it (the files can be empty). Now write a script that for every file in that directory you rename it to have an extension of today's date in YYYYMMDD format.
+mkdir testdir
+cd ~/testdir
+touch file1 file2 file3
+
+TODAY=`date +%Y.%m.%d`
+for FILE in $(ls $testdir)
+do
+mv $FILE ${TODAY}_${FILE}
+done
+
+##You are in charge of creating a program for the lottery in your area! The options are for numbers between 1and 50. Create a script that picks 5 for each draw plus a bonus ball number between 1 and 10. Output the numbers to a file that has the date in its name.
+shuf -n 5 -e {1..50} > Winners.txt
+shuf -n 1 -e {1..10} >> Winners.txt
+
+#! /bin/sh
+FOUND=0
+echo "Enter number"
+read USER_INPUT
+echo $USER_INPUT
+
+for i in `cat Winners.txt`
+do
+if(( $USER_INPUT == $i ))
+then
+((FOUND++))
+BONUS=`tail -n 1 Winners.txt`
+if(( $i == $BONUS ))
+then
+((FOUND++))
+fi
+break
+fi
+done
+echo $FOUND
+if(( $FOUND > 0 ))
+then echo "CONGRATS, YOU WON ${FOUND} MATCHES"
+else echo "YOU LOSE"
+fi
+
+##Write a script to determine how secure a password is
+vi password.sh
+#!/bin/sh
+echo "Enter new password"
+read USER_INPUT
+if(( ${#USER_INPUT} > 7 ))
+then
+T1="True"
+else
+echo "PASSWORD LENGTH SHOULD BE LONGER THAN 7 CHARACTERS"
+exit 1
+fi
+
+STR=$USER_INPUT
+T2=`echo $STR | grep "[0-9]"`
+if [ -z "$T2" ]
+then
+echo "PASSWORD MUST CONTAIN AT LEAST 1 DIGIT"
+exit 1
+else
+T1="True"
+fi
+
+T2=`echo $STR | grep "[a-Z]"`
+if [ -z "$T2" ]
+then
+echo "PASSWORD MUST CONTAIN AT LEAST 1 LETTER"
+exit 1
+else
+T1="TRUE"
+fi
+
+T2=`echo $STR | grep "[a-z]"`
+if [ -z "$T2" ]
+then
+echo "PASSWORD MUST CONTAIN AT LEAST 1 LOWERCASE"
+exit 1
+else
+T1="TRUE"
+fi
+
+T2=`echo $STR | grep "[A-Z]"`
+if [ -z "$T2" ]
+then
+echo "PASSWORD MUST CONTAIN AT LEAST 1 UPPERCASE"
+exit 1
+else
+T1="TRUE"
+fi
+
+esc
+:wq
+chmod 777 password.sh
+./password.sh
+
+##Write a script that takes a number as an input and reverses it out to the user. 
