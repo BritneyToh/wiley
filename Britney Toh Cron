@@ -26,3 +26,6 @@
 
 ##Set up the script to run at 6am and 8am on Saturday and Sunday.
 0 6,8 * * 6,0 ~/fixGenerator.sh
+
+##Copy the contents of your crontab into a file named crontab.yourname.module13 and place the file in the directory specified by your instructor.
+crontab -l > crontab.brit.module13
