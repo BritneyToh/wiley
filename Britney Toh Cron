@@ -1,3 +1,4 @@
+##CRON
 ##Ensure the fixGenerator.sh script is installed in your home directory.
 
 ##Set up the script to run Monday-Friday at 6am.
@@ -29,3 +30,49 @@
 
 ##Copy the contents of your crontab into a file named crontab.yourname.module13 and place the file in the directory specified by your instructor.
 crontab -l > crontab.brit.module13
+
+##REVIEW EXERCISES
+##Create a file named seq1.txt and write a sentence of your choice in it.
+touch seq1.txt
+echo "I love you" > seq1.txt
+
+##Create a file named seq2.txt and write a sentence of your choice in it.
+touch seq2.txt
+echo "I hate you" > seq2.txt
+
+##Create a file named seq3.txt and write a sentence of your choice in it.
+touch seq3.txt
+echo "I like you" > seq3.txt
+
+##Generate a list of these files and add the list to another file named list.txt.
+ls seq* > list.txt
+
+##Use a single command to copy the contents of all files with seq in the name into a file named total.txt.
+cat seq1.txt seq2.txt seq3.txt > total.txt
+
+##Do a case-insensitive search of the file for hobbit and output the results to the screen.
+grep -iF "hobbit" LOTR.txt
+
+##Put the first eight lines and the last three lines into a new file named LOTRtxt.
+cat head -8 LOTR.txt | tail -3 LOTR.txt | > LOTRtxt.txt
+
+##Run a command on the command line to replace all occurrences of Gollum with Thanos and output the results into a new file named LOTRMarvel.txt.
+:s/\<Gollum\>/Thanos/g
+cat LOTR.txt > LOTRMarvel.txt
+
+##On the command line, run a command to compare the LOTR.txt with LOTRMarvel.txt.
+diff LOTR.txt LOTRMarvel.txt
+
+##Change the permission on LOTR.txt so that it is read and executable for others and group, and fully accessible for the current user.
+chmod 755 LOTR.txt
+
+##Count the number of words in LOTR.txt.
+wc LOTR.txt
+
+##Rename the LOTR.txt file to LordOfTheRings.txt.
+LOTR.txt > LordOfTheRings.txt
+
+##Create a compressed tarball named LOTR.tar.gz that includes all the files you have created in this set of exercises.
+tar -cvf LOTR.tar.gz ~
+
+
