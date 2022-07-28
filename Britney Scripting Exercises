@@ -107,3 +107,193 @@ chmod 777 password.sh
 ./password.sh
 
 ##Write a script that takes a number as an input and reverses it out to the user. 
+vi reversenumber.sh
+#!/bin/sh
+echo "Enter number"
+read NUMBER
+echo $NUMBER | rev
+
+esc
+:wq
+chmod 777 reversenumber.sh
+./reversenumber.sh
+
+##Create a script that takes two number parameters a and b and then shows True if a is larger than b or False otherwise.
+vi parameter.sh
+#!/bin/sh
+echo "Key in parameter A"
+read INPUTA
+echo "Key in parameter B"
+read INPUTB
+T1=`echo $INPUTA | grep "[0-9]"`
+if [ -z "$T1" ]
+then 
+echo "PARAMETER MUST BE A NUMBER"
+exit 1
+fi
+T1=`echo $INPUTB | grep "[0-9]"`
+if [ -z "$T1" ]
+then 
+echo "PARAMETER MUST BE A NUMBER"
+exit 1
+fi
+
+if (( $INPUTA > $INPUTB ))
+then
+echo "TRUE a is greater than b"
+RESULT=$(($INPUTA-$INPUTB))
+echo "The difference is $RESULT"
+else
+echo "FALSE a is not greater than b"
+fi
+
+esc
+:wq
+chmod 777 parameter.sh
+./parameter.sh
+
+## Create a 10-question true or false quiz game in your script. Choose a topic of your liking for the questions!
+vi quiz.sh
+#!/bin/sh
+echo "Question 1: What is the third planet from the sun?"
+read USER_INPUT
+if [ "${USER_INPUT,,}" = "earth" ]
+then
+echo "TRUE"
+else
+echo "FALSE"
+fi
+
+echo "Question 2: How many planets do we have in our solar system?"
+read USER_INPUT
+if (($USER_INPUT=8))
+then
+echo "TRUE"
+else
+echo "FALSE"
+fi
+
+echo "Question 3: Which number planet is Jupiter?"
+read USER_INPUT
+if (($USER_INPUT=5))
+then
+echo "TRUE"
+else
+echo "FALSE"
+fi
+
+echo "Question 4: How many days does it take for the Earth to complete one single orbit?"
+read USER_INPUT
+if (($USER_INPUT=365))
+then
+echo "TRUE"
+else
+echo "FALSE"
+fi
+
+echo "Question 5: Which planet is furthest from the sun?"
+read USER_INPUT
+if [ "${USER_INPUT,,}" = "pluto" ]
+then
+echo "TRUE"
+else
+echo "FALSE"
+fi
+
+echo "Question 6: Which planet is nearest from the sun?"
+read USER_INPUT
+if [ "${USER_INPUT,,}" = "mercury" ]
+then
+echo "TRUE"
+else
+echo "FALSE"
+fi
+
+echo "Question 7: Which planet has the most moons?"
+read USER_INPUT
+if [ "${USER_INPUT,,}" = "saturn" ]
+then
+echo "TRUE"
+else
+echo "FALSE"
+fi
+
+echo "Question 8: How many moons does Saturn have?"
+read USER_INPUT
+if (($USER_INPUT=82))
+then
+echo "TRUE"
+else
+echo "FALSE"
+fi
+
+echo "Question 9: When was the last Apollo mission?"
+read USER_INPUT
+if (($USER_INPUT=1972))
+then
+echo "TRUE"
+else
+echo "FALSE"
+fi
+
+echo "Question 10: What year did the States land on the moon?"
+read USER_INPUT
+if (($USER_INPUT=1969))
+then
+echo "TRUE"
+else
+echo "FALSE"
+fi
+
+## Activity 8
+#!/bin/sh
+i=1
+arr=()
+while (( i < 6 ))
+do
+echo "ENTER INPUT NUMBER ${i}"
+read INP
+arr+=($INP)
+((i++))
+done
+echo ${arr[@]}
+echo "DO YOU WANT TO CONTINUE?(true/false)"
+read INP
+YES=${INP}
+while [ $YES == "true" ] && [ $i -lt "11" ]
+do
+echo "ENTER INPUT NUMBER ${i}"
+read INP
+arr+=($INP)
+((i++))
+if (( "$i" < 11 ))
+then
+echo "Do YOU WANT TO CONTINUE?(true/false)"
+read INP
+YES=${INP}
+fi
+done
+mult=1
+sum=0
+min=${arr[0]}
+max=${arr[0]}
+for ii in ${arr[@]}
+do
+mult=$((mult*ii))
+sum=$((sum+ii))
+if (( min > ii ))
+then
+min=$ii
+fi
+if (( max < ii ))
+then
+max=$ii
+fi
+done
+echo "product is $mult"
+avg=$((sum/i))
+echo "average is $avg"
+echo "sum is $sum"
+echo "max is $max"
+
+## Write a script that takes a file name as a parameter.
