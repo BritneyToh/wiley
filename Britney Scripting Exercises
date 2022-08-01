@@ -356,3 +356,79 @@ fi
 done
 done
 echo "FAIL"
+
+## Write a script that takes two files of unique numbers and displays the difference between the two lists (without using grep).
+#! /bin/sh
+echo "1,2,4,6" >> u.txt
+echo "1,2,6,7,89" >> u2.txt
+i1=(`cat u.txt`)
+echo ${i1[@]}
+i2=(`cat u2.txt`)
+echo ${i2[@]}
+found=0
+echo "Diff in list 1"
+for i in ${i1[@]}
+do
+for ii in ${i2[@]}
+do
+if (( i == ii ))
+then
+found=1
+break
+fi
+done
+if (( found == 0 ))
+then
+echo $i
+fi
+found=0
+done
+echo "Diff in list 2"
+for i in ${i2[@]}
+do
+for ii in ${i1[@]}
+do
+if (( i == ii ))
+then
+found=1
+break
+fi
+done
+if (( found == 0 ))
+then
+echo $i
+fi
+found=0
+done
+
+## Activity 15
+#!/bin/bash
+
+echo "Checking FixGen directory path"
+[ -d ~/FixGen ] && echo "Existed" || ( echo "FixGen folder does not exist -- creating -- created" && mkdir ~/FixGen )
+
+echo "Checking FixGen/logs directory path"
+[ -d ~/FixGen/logs ] && echo "Existed" || ( echo "FixGen/logs folder does not exist -- creating -- created" && mkdir ~/FixGen/logs )
+
+find ~/FixGen/logs -name "fixlog*"
+find -name "fixlog*" | grep -o -E "[0-9]+" > temp.txt
+readarray -t a < sort temp.txt
+#cat temp.txt | readarray -t a
+IFS=$'\n' 
+sorted=($(sort <<<"${a[*]}"))
+unset IFS
+b=()
+i=0
+l=$(( ${#a[*]} - 4 ))
+for i in `seq 0 $l`; do b+=( fixlog${a[$i]}.log ); done
+gzip ${b[*]}
+~/FixGen/logs/fixGenerator.sh &
+
+0 6 * * 1-5 ~/FixGen/logs/fixGenerator.sh
+
+## Activity 17
+sed 's/;\/,/g' fix.log > data.csv
+sed -i -e '1i"Client","Message Type","Stock","Quantity","Price","Side","Order ID","Last Quantity","Exec ID","Last Price"' /home/data.csv
+
+## Activity 18
+
