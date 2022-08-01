@@ -296,4 +296,63 @@ echo "average is $avg"
 echo "sum is $sum"
 echo "max is $max"
 
-## Write a script that takes a file name as a parameter.
+## Activity 9
+#!/bin/bash
+pr=$1
+[ -e $pr ] && echo "ERROR 49: File existed" || ( touch $pr ; echo "$pr created" )
+
+## Activity 10
+#!/bin/bash
+[ -e $1 ] && ( echo "ERROR 49: File existed" ; exit 0 ) || ( touch $1 ; echo "$1 created" )
+
+i=0
+
+while [ $i -le $2 ]
+do
+echo $RANDOM >> $1
+((i++))
+done
+
+## Activity 11
+#!/bin/bash
+#readarray -t arr < sq.txt
+inp=`cat sq.txt`
+arr=($inp)
+l=${#arr[*]}
+i=1
+arr=(`echo "${arr[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '`)
+swap=1
+while (( swap == 1 ))
+do
+i=1
+swap=0
+while (( i <= $(( l - 1 )) ))
+do
+if (( arr[$((i-1))] < arr[$i] ))
+then
+temp=${arr[$((i-1))]}
+arr[$((i-1))]=${arr[$i]}
+arr[$i]=$temp
+swap=1
+fi
+((i++))
+done
+done
+echo ${arr[@]}
+exit 0
+
+## Write a script that checks if two files have at least one common element or not. Display an appropriate message for both scenarios. 
+#!/bin/bash
+i1=(`cat $1`)
+i2=(`cat $2`)
+for i in ${i1[@]}
+do
+for ii in ${i2[@]}
+do
+if (( i == ii ))
+echo "TRUE"
+return true
+fi
+done
+done
+echo "FAIL"
