@@ -1,0 +1,62 @@
+Data redundancy: Storing the same piece of data multiple times in the database
+  - Data redundancy leads to anomalies: data anomoly, update anomoly, insert anomoly, delete anomoly
+   
+Functional dependency: Column A depends on another column
+  - E.g. Name and social security number. With SSN, you can find the name (name is functionally
+dependent on SSN), but with just a name, you cannot find a specific SSN as many may have the
+same name 
+
+Normalisation: Applying a sequence of rules (normal forms) to the database
+◦Normal forms build on those under them to prevent anomalies by removing structural issues
+◦First normal form (1NF):
+‣ No top-to-bottom ordering to the rows
+‣ No left-to-right ordering to the columns
+‣ Each row can be uniquely identified (Unique key ID)
+‣ Every row/column intersection contains only one value (Do not add more than one value
+under each attribute) 
+
+◦Second normal form (2NF): Table is in 1NF AND every non-primary-key column is entirely
+dependent on the entire primary key (strictly related to one another)
+
+◦Third Normal Form (3NF): Table is in 2NF and no non-primary key column is transitively
+dependent on the primary key
+‣ A relies on PK
+‣ B relies on PK
+‣ A relies on B
+‣ Thus, A relies on PK through B (A is transitively dependent on PK)
+• E.G. City that person X stays in depends on the Contact ID (who person X is)
+• ZipCode also depends on the contact ID
+• City relies on the ZipCode, which relies on Contact ID
+
+Denormalisation: When optimising for extreme performance, we may want to move back towards
+1NF
+◦Process massive amounts of data
+◦Perform dozens of table joints and calculations
+◦Poor data protection
+
+Entity Relationship Diagram (ERD): Blueprint of the database
+◦Identify places where proposed structure may not work due to lack of relationship
+◦Quickly identify which tables are related and what fields are in which tables
+◦Single, condensed representation of the structure
+◦Consists of:
+‣ Tables required by database
+    • Name of table (describing table attributes) at the top
+    • Primary key field
+    • Remaining fields in that category
+‣ List of fields in each table
+    • Additional info about the field names
+    • Are they strings or integers?
+    • VARCHAR(x): x is the limit of characters for that field
+‣ Metadata about each field
+‣ Primary and foreign keys
+    • Underline PK/FK
+‣ How each table is related to each other
+
+◦Relationships: Arrow points from one side of the relationship to the many side of the
+relationship
+‣ E.g. One name can have many phone numbers, but each phone number only belongs to
+one name (arrow points from contact to phone numbers)
+‣ Crow’s foot marking: Variable in table can be associated with several records in the second
+table
+‣ Vertical line: Each record in the table must have at least one related record
+for in the other table (no blank records)
