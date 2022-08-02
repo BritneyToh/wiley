@@ -1,0 +1,24 @@
+database: Structured representation of data that we can read from and wrire to
+##stores data as tables, rows and columns
+
+database management system (dbms): software system that manages databases
+
+keys: unique identifier for each record in each row
+##primary key: cannot be replicated in same table
+##foreign key: primary key becomes a foreign key in secondary table
+
+one-to-one relationships: each row in one table corresponds to only one row in another table, vice-versa
+
+one-to-many relationships: each primary key corresponds to multiple records in the second table, but each record in the second table corresponds to only one record in the first table
+
+many-to-many relationships: each primary key corresponds to multiple foreign keys, vice-versa
+##bridge table: supports all the unique combinations of primary and foreign keys
+
+ACID: guidelines for databases to adhere to to withstand unexpected failures without data corruption
+##Atomicity: All or nothing. If one action in the transaction fails, the entire transaction fails
+##Consistenct: A transaction is only consistent if it can move the database from one valid state to another valid state
+##Isolation: Isolation means a transaction cannot affect another transaction until it is complete. 
+##Durability:  Durablity means a transaction will remain in the database once it is committed. If the server is out, it is still there.
+  It is not fully committed until it is written to permanent storage.
+  
+  Databases and log files: Contains history of executed actions. Log file is physically seperate from actual database data.
