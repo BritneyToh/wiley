@@ -1,0 +1,104 @@
+## Activity 1
+SELECT *
+FROM Exercise, ExerciseCategory;
+
+## Activity 2
+SELECT *
+FROM Exercise, ExerciseCategory;
+
+## Activity 3
+SELECT *
+FROM Client
+WHERE City = 'Metairie';
+
+## Activity 4
+SELECT *
+FROM Client
+WHERE Clientid = '818u7faf-7b4b-48a2-bf12-7a26c92de20c';
+
+## Activity 5
+SELECT *
+FROM Goal;
+There are 17 rows
+
+## Activity 6
+SELECT Name, Levelid
+FROM Workout;
+
+## Activity 7
+SELECT Name, Levelid, Notes
+FROM Workout
+WHERE Levelid = 2;
+
+## Activity 8
+SELECT FirstName, LastName, City
+FROM Client
+WHERE City in ('Metairie','Kenner','Gretna');
+
+## Activity 9
+SELECT FirstName, LastName, BirthDate
+FROM Client
+WHERE birthdate BETWEEN '1980-01-01' AND '1989-12-31';
+
+## Activity 10
+SELECT FirstName, LastName, BirthDate
+FROM Client
+WHERE birthdate >= '1980-01-01' AND birthdate <= '1989-12-31';
+
+## Activity 11
+SELECT *
+FROM Login
+WHERE EmailAddress LIKE '%.gov';
+SELECT COUNT(*)
+FROM Login
+WHERE EmailAddress LIKE '%.gov';
+There are 17 rows
+
+## Activity 12
+SELECT COUNT(*)
+FROM Login
+WHERE EmailAddress NOT LIKE '%.com';
+There are 122 rows
+
+## Activity 13
+SELECT firstname, lastname
+FROM Client
+WHERE BirthDate ISNULL;
+
+## Activity 14
+SELECT Name
+FROM ExerciseCategory
+WHERE ParentCategoryid IS NOT NULL;
+
+## Activity 15
+SELECT Name, Notes
+FROM Workout
+WHERE Levelid = 3 AND Notes LIKE '%you%';
+
+## Activity 16
+SELECT FirstName, LastName, City
+FROM Client
+WHERE (lastname LIKE 'L%' OR lastname LIKE 'M%' OR lastname LIKE 'N%') AND City='LaPlace';
+
+## Activity 17
+SELECT InvoiceId, Description, Price, Quantity, ServiceDate, price*quantity AS line_item_total
+FROM InvoiceLineItem
+WHERE price*quantity BETWEEN 15 and 25;
+
+## Activity 18
+SELECT EmailAddress
+FROM Login
+WHERE clientid=(SELECT clientid FROM Client WHERE firstname='Estrella' AND lastname='Bazely');
+
+## Activity 19
+SELECT Workoutid
+FROM Workout
+WHERE Name='This is Parkour';
+
+SELECT Goalid 
+FROM WorkoutGoal
+WHERE Workoutid=(SELECT Workoutid FROM Workout WHERE Name='This is Parkour');
+
+SELECT Name
+FROM Goal
+WHERE Goalid IN (SELECT Goalid FROM WorkoutGoal WHERE Workoutid=(SELECT Workoutid FROM Workout WHERE Name='This is Parkour'));
