@@ -1,0 +1,30 @@
+SQL
+Syntax:
+  1. SELECT: Retrieve Values from one or more tables in database
+     SELECT field1, field1, field3
+     FROM table1
+     WHERE criteria
+     ORDER BY field1, field2;
+     
+  2. ; : Ends a command line
+  
+  3. Line breaks and indents: Each field on a seperate line, each clause on a seperate line
+     CREATE TABLE `TestTable` (
+     TestID CHAR(36) PRIMARY KEY,
+     Column1 VARCHAR(50) NOT NULL,
+     Column2 VARCHAR(50) NOT NULL,
+     Column3 DATE NULL
+     );
+     
+    SELECT FirstName, LastName, Address 
+    FROM Client;
+    
+  4. SQL is not case-sensitive: Select=SELECT=select
+  
+  5. Commas: Used to seperate LIKE objects in a series, like fields. DO NOT USE COMMA TO SEPERATE FIELDS AND COMMANDS (unlike objects)
+  
+  6. Quotation marks: Use either '' or "". Identify fields whose names include spaces or special characters, as well as string values in conditional statements or when 
+  adding data to a table
+  
+  
+Null Values:
