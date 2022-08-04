@@ -1,0 +1,220 @@
+-- Use an aggregate to count the number of Clients.
+-- 500 rows
+--------------------
+SELECT COUNT(*)
+FROM Client;
+
+-- Use an aggregate to count Client.BirthDate.
+-- The number is different than total Clients. Why?
+-- 463 rows
+--------------------
+SELECT COUNT(BirthDate)
+FROM Client;
+The number is different as some clients did not key in their birthdates (null values)
+
+-- Group Clients by City and count them.
+-- Order by the number of Clients desc.
+-- 20 rows
+--------------------
+SELECT COUNT(*), City
+FROM Client
+GROUP BY Client.City
+ORDER BY COUNT(*) DESC;
+
+-- Calculate a total per invoice using only the InvoiceLineItem table.
+-- Group by InvoiceId.
+-- You'll need an expression for the line item total: Price * Quantity.
+-- Aggregate per group using SUM().
+-- 1000 rows
+--------------------
+SELECT
+	InvoiceId,
+    SUM(Price * Quantity) InvoiceTotal
+FROM InvoiceLineItem
+GROUP BY InvoiceId;
+
+-- Calculate a total per invoice using only the InvoiceLineItem table.
+-- (See above.)
+-- Only include totals greater than $500.00.
+-- Order from lowest total to highest.
+-- 234 rows
+--------------------
+SELECT
+	InvoiceId,
+    SUM(Price * Quantity) InvoiceTotal
+FROM InvoiceLineItem
+GROUP BY InvoiceId
+HAVING InvoiceTotal >= 500
+ORDER BY InvoiceTotal;
+
+-- Calculate the average line item total
+-- grouped by InvoiceLineItem.Description.
+-- 3 rows
+--------------------
+SELECT
+    InvoiceId,
+    AVG(Price*Quantity) AvgTotal
+FROM InvoiceLineItem
+GROUP BY `Description`;
+
+-- Select ClientId, FirstName, and LastName from Client
+-- for clients who have *paid* over $1000 total.
+-- Paid is Invoice.InvoiceStatus = 2.
+-- Order by LastName, then FirstName.
+-- 146 rows
+--------------------
+SELECT 
+	Client.ClientId, 
+	Client.FirstName, 
+	Client.LastName,
+    SUM(InvoiceLineItem.Price * InvoiceLineItem.Quantity) TotalAmtPaid
+FROM Client
+INNER JOIN Invoice ON Invoice.ClientId=Client.ClientId
+INNER JOIN InvoiceLineItem ON InvoiceLineItem.InvoiceId=Invoice.InvoiceId
+WHERE Invoice.InvoiceStatus = 2
+GROUP BY Client.ClientId, Client.FirstName, Client.LastName
+HAVING TotalAmtPaid > 1000
+ORDER BY Client.LastName, Client.FirstName;
+
+-- Count exercises by category.
+-- Group by ExerciseCategory.Name.
+-- Order by exercise count descending.
+-- 13 rows
+--------------------
+SELECT
+	ExerciseCategory.`Name` CategoryName,
+    COUNT(Exercise.ExerciseId) ExerciseCount
+FROM ExerciseCategory 
+INNER JOIN Exercise  ON ExerciseCategory.ExerciseCategoryId = Exercise.ExerciseCategoryId
+GROUP BY ExerciseCategory.ExerciseCategoryId, ExerciseCategory.`Name`
+ORDER BY COUNT(Exercise.ExerciseId) DESC;
+
+-- Select Exercise.Name along with the minimum, maximum,
+-- and average ExerciseInstance.Sets.
+-- Order by Exercise.Name.
+-- 64 rows
+--------------------
+SELECT
+	Exercise.`Name` ExerciseName,
+    MIN(ExerciseInstance.Sets) Minsets,
+    MAX(ExerciseInstance.Sets) Maxsets,
+    AVG(ExerciseInstance.Sets) Avgsets
+FROM Exercise
+INNER JOIN ExerciseInstance ON ExerciseInstanceId=Exercise.ExerciseId
+GROUP By Exercise.ExerciseId, Exercise.`Name`
+ORDER BY Exercise.`Name`;
+
+-- Find the minimum and maximum Client.BirthDate
+-- per Workout.
+-- 26 rows
+-- Sample: 
+-- WorkoutName, EarliestBirthDate, LatestBirthDate
+-- '3, 2, 1... Yoga!', '1928-04-28', '1993-02-07'
+--------------------
+SELECT
+	Workout.`Name` WorkoutName,
+    Min(Client.BirthDate) EarliestBirthDate,
+	Max(Client.BirthDate) LatestBirthDate
+FROM Workout
+INNER JOIN ClientWorkout ON ClientWorkout.WorkoutId = Workout.WorkoutId
+INNER JOIN Client ON ClientWorkout.ClientId = Client.ClientId
+GROUP BY Workout.WorkoutId, Workout.`Name`
+ORDER BY Workout.`Name`;
+
+-- Count client goals.
+-- Be careful not to exclude rows for clients without goals.
+-- 500 rows total
+-- 50 rows with no goals
+--------------------
+SELECT
+	Client.ClientId,
+    Client.FirstName,
+    Client.LastName,
+    COUNT(Goal.GoalId) GoalCount
+FROM Client
+LEFT OUTER JOIN ClientGoal ON ClientGoal.ClientId=Client.ClientId
+LEFT OUTER JOIN Goal ON ClientGoal.GoalId=Goal.GoalId
+GROUP BY Client.ClientId
+ORDER BY COUNT(Goal.GoalId);
+
+-- Select Exercise.Name, Unit.Name, 
+-- and minimum and maximum ExerciseInstanceUnitValue.Value
+-- for all exercises with a configured ExerciseInstanceUnitValue.
+-- Order by Exercise.Name, then Unit.Name.
+-- 82 rows
+--------------------
+SELECT
+	Exercise.`Name` ExerciseName,
+    Unit.`Name` UnitName,
+    MIN(ExerciseInstanceUnitValue.Value) MinimumValue,
+    MAX(ExerciseInstanceUnitValue.Value) MaximumValue
+FROM Exercise
+INNER JOIN ExerciseInstance ON ExerciseInstance.ExerciseId=Exercise.ExerciseId
+INNER JOIN ExerciseInstanceUnitValue ON ExerciseInstanceUnitValue.ExerciseInstanceId=ExerciseInstance.ExerciseInstanceId
+INNER JOIN Unit ON ExerciseInstanceUnitValue.UnitId=Unit.UnitId
+GROUP BY Exercise.ExerciseId, Exercise.`Name`, Unit.UnitId, Unit.`Name`
+ORDER BY Exercise.`Name`, Unit.`Name`;
+
+-- Modify the query above to include ExerciseCategory.Name.
+-- Order by ExerciseCategory.Name, then Exercise.Name, then Unit.Name.
+-- 82 rows
+--------------------
+SELECT
+	Exercise.`Name` ExerciseName,
+    Unit.`Name` UnitName,
+    ExerciseCategory.`Name` CategoryName,
+    MIN(ExerciseInstanceUnitValue.Value) MinimumValue,
+    MAX(ExerciseInstanceUnitValue.Value) MaximumValue
+FROM Exercise
+INNER JOIN ExerciseInstance ON ExerciseInstance.ExerciseId=Exercise.ExerciseId
+INNER JOIN ExerciseInstanceUnitValue ON ExerciseInstanceUnitValue.ExerciseInstanceId=ExerciseInstance.ExerciseInstanceId
+INNER JOIN Unit ON ExerciseInstanceUnitValue.UnitId=Unit.UnitId
+INNER JOIN ExerciseCategory ON ExerciseCategory.ExerciseCategoryId=Exercise.ExerciseCategoryId
+GROUP BY ExerciseCategory.`Name`, Exercise.ExerciseId, Exercise.`Name`, Unit.UnitId, Unit.`Name`
+ORDER BY ExerciseCategory.`Name`, Exercise.`Name`, Unit.`Name`;
+
+-- Select the minimum and maximum age in years for
+-- each Level.
+-- To calculate age in years, use the MySQL function DATEDIFF.
+-- 4 rows
+--------------------
+SELECT
+	Level.`Name` LevelName,
+	MIN(DATEDIFF(CURDATE(), Client.BirthDate) / 365) MinAge,
+    MAX(DATEDIFF(CURDATE(), Client.BirthDate) / 365) MaxAge
+FROM Level 
+INNER JOIN Workout  ON Level.LevelId = Workout.LevelId
+INNER JOIN ClientWorkout  ON Workout.WorkoutId = ClientWorkout.WorkoutId
+INNER JOIN Client  ON ClientWorkout.ClientId = Client.ClientId
+GROUP BY Level.LevelId, Level.`Name`;
+
+-- Stretch Goal!
+-- Count logins by email extension (.com, .net, .org, etc...).
+-- Research SQL functions to isolate a very specific part of a string value.
+-- 27 rows (27 unique email extensions)
+--------------------
+SELECT
+	SUBSTRING_INDEX(EmailAddress, '.', -1),
+    COUNT(EmailAddress)
+FROM Login
+GROUP BY SUBSTRING_INDEX(EmailAddress, '.', -1)
+ORDER BY COUNT(EmailAddress) DESC;
+
+-- Stretch Goal!
+-- Match client goals to workout goals.
+-- Select Client FirstName and LastName and Workout.Name for
+-- all workouts that match at least 2 of a client's goals.
+-- Order by the client's last name, then first name.
+-- 139 rows
+--------------------
+SELECT
+	Workout.`Name` WorkoutName,
+    Client.FirstName,
+    Client.LastName,
+	COUNT(ClientGoal.GoalId)
+FROM Client 
+INNER JOIN ClientGoal ON Client.ClientId = ClientGoal.ClientId
+INNER JOIN WorkoutGoal  ON ClientGoal.GoalId = WorkoutGoal.GoalId
+INNER JOIN Workout  ON WorkoutGoal.WorkoutId = Workout.WorkoutId
+GROUP BY Workout.WorkoutId, Workout.`Name`, Client.ClientId, Client.FirstName, Client.LastName
+HAVING COUNT(ClientGoal.GoalId) > 1
