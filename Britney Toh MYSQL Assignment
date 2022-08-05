@@ -1,0 +1,56 @@
+DROP DATABASE HotelBookings;
+
+CREATE DATABASE HotelBookings;
+USE HotelBookings;
+
+CREATE TABLE Guest (
+  GuestId INT PRIMARY KEY AUTO_INCREMENT,
+  FirstName VARCHAR(50) NOT NULL,
+  LastName VARCHAR(50) NOT NULL,
+  Address VARCHAR(100) NOt NULL,
+  City VARCHAR(30) NOT NULL,
+  State CHAR(5),
+  Zip CHAR(10),
+  PhoneNumber CHAR(10) NOT NULL
+);
+
+CREATE TABLE RoomType (
+  RoomTypeId INT PRIMARY KEY AUTO_INCREMENT,
+  RoomTypeName VARCHAR(10) NOT NULL,
+  RoomTypePrice DECIMAL(3,2) NOT NULL,
+  ExtraPersonCost INT NULL
+);
+
+CREATE TABLE RoomData (
+  RoomNo INT PRIMARY KEY, 
+  Amenities VARCHAR(50) NOT NULL,
+  ADAaccessible BOOL NOT NULL,
+  StandardOccupancy INT NOT NULL,
+  MaxOccupancy INT NOT NULL,
+  RoomTypeId INT NOT NULL,
+  CONSTRAINT fk_RoomData_RoomType FOREIGN KEY(RoomTypeId)
+    REFERENCES RoomType(RoomTypeId)
+);  
+
+CREATE TABLE Booking (
+  BookingId INT PRIMARY KEY AUTO_INCREMENT, 
+  ArrivalDate DATE NOT NULL,
+  DepartureDate DATE NOT NULL,
+  NumAdults INT NOT NULL,
+  NumChildren INT NOT NULL,
+  GuestId INT NOT NULL,
+  CONSTRAINT fk_Booking_Guest FOREIGN KEY(GuestId)
+    REFERENCES Guest(GuestId)
+  RoomNo INT NOT NULL,
+  CONSTRAINT fk_Booking_RoomData FOREIGN KEY(RoomNo)
+    REFERENCES RoomData(RoomNo)  
+); 
+
+CREATE TABLE Invoice (
+  InvoiceId INT PRIMARY KEY AUTO_INCREMENT, 
+  RoomCharge DECIMAL(3,2) NOT NULL,
+  GuestId INT NOT NULL
+  CONSTRAINT fk_Invoice_Guest FOREIGN KEY(GuestId)
+    REFERENCES Guest(GuestId)  
+); 
+
