@@ -1,0 +1,67 @@
+## Python Syntax
+## Activity 1
+# display the text in quotation marks to an output block
+print("Python is fun!")
+
+# Display the text in quotation marks to an output block 
+# without moving any of the existing acode to a different line
+print("Python is fun!") 
+print("Python is also easy.")
+
+# Display the text in quotation marks to an output block 
+# without moving any of the existing code to a different line
+print("Python is fun!")
+
+# Change each variable name to an appropriate name for Python. 
+# Do not use the same variable name more than one time.
+first-name = "Rebecca" # first name
+last_name = "Roberts" # last name
+ 
+# After changing the variable names, update the code below 
+# to print out each name.
+print(first-name)
+print(last_name)
+
+## Activity 2
+# Add a new line of code that displays the text in quotation marks 
+# to an output block without repeating the text in quotation marks.
+output = "I love Python!"
+ 
+# your code below this line
+print("I love Python!")
+
+# Display only the text Python is fun! to an output block 
+# without deleting any of the existing code
+def text1():
+    print("Python is fun!")
+def text2():
+    print("Python is also easy!")
+  
+text1()
+
+## Create a script that prompts the user for the name of the state where they were born and the name of the state where they live now.
+def stateborn(x):
+    return f"You were born in {x} state"
+
+x=input("Which state were you born in? ")
+
+def statenow(y):
+    return f"You live in state {y} now"
+
+y=input("Which state do you live in now? ")
+
+print(stateborn(x))
+print(statenow(y))
+
+## Self-Assessment
+def user():
+    firstname=input("What is your first name? ")
+    lastname=input("What is your last name? ")
+    phone=input("What is your phone number? ")
+    yearborn=input("What is the year you are born in? ")
+    return f"First Name: {firstname}, Last Name: {lastname}, Phone number: {phone}, DOB: {yearborn}"
+    
+
+user()
+
+## Python Data Types
