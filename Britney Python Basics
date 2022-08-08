@@ -65,3 +65,363 @@ def user():
 user()
 
 ## Python Data Types
+## Activity 1
+def integerconverter(x):
+    print(f"{x} is of integer {type(x)} type. ")
+    integerx=int(x)
+    print(f"{integerx} is of integer {type(integerx)} type. ")
+    
+x=input("Key in an integer: ")
+integerconverter(x)
+
+
+## Activity 2
+result= 2*2**5*9
+print(result)
+
+## Activity 3
+def integerconverter(x):
+    return int(x)
+
+x=float(input("Enter a float: "))
+
+integerconverter(x)
+
+## Activity 4
+def deposit():
+    P=float(input("What is your initial deposit? "))
+    r=float(input("What is the interest rate? "))
+    n=int(input("Number of times per year interest is calculated: "))
+    t=int(input("Number of years since initial deposit "))
+    V=P*(1 + r/n)**(n*t)
+    return f"The current value of your deposit is {V}"
+
+
+deposit()
+
+## Activity 5
+def simpleinterest():
+    p=float(input("How much did you borrow? "))
+    r=float(input("What is the interest rate? "))
+    d=int(input("Number of days of loan: "))
+    i=p*r*d/365
+    return f"Simple interest accrued is {i}"
+
+simpleinterest()
+
+## Activity 6
+a=1
+b=0
+print(a>b)
+
+c=5
+d=5
+print(c<d)
+
+s="I love python"
+print(len(s)<20)
+
+f=5.678
+print(type(f)==int)
+
+## Activity 7
+import math
+def number(x):
+    print(f"Boolean value={bool(x)}")
+    print(f"Total bits in binary={x.bit_length()}")
+    squarex=x**0.5
+    print(f"Square root={round(squarex,2)}")
+    
+x=int(input())
+
+number(x)
+
+## Activity 8
+numberlist = [] 
+maxLengthList = 5
+while len(numberlist) < maxLengthList:
+    x = int(input("Enter an integer: "))
+    numberlist.append(x)
+    count=0
+    productcount=1
+    for i in numberlist:
+        count += i
+        productcount = productcount*i
+        average = count/len(numberlist)
+        
+print("sum = ", count)
+print("product = ", productcount)
+print("average = ", average)
+
+## Activity 9
+def address():
+    x=input("House number: ")
+    y=input("Street name: ")
+    z=input("Street type: ")
+    print(f"Your address is {x} {y} {z}")
+    print(f"Your house number is {x}")
+    print(f"Your street name is {y} {z}")
+    
+address()
+
+## Self Assessment
+def userinfo():
+    firstname=input("What is your firstname? ")
+    lastname=input("What is your lastname? ")
+    city=input("Which city do you live in? ")
+    w=float(input("What is your hourly wage? "))
+    h=int(input("What is the number of hours you work every week? "))
+    
+    x=w*h
+    y=x*4
+    z=y*12
+    
+    print(f"Hi, {firstname.title()} {lastname.title()}!")
+    print(f"How are you? I hope the weather is nice in {city.title()}.")
+    print(f"Based on the information you provided, you earn {x} dollars per week, approximately {y} dollars per month, and {z} dollars per year.")
+    
+userinfo()
+
+## Conditional Statements
+## Activity 1
+def richbroke(x):
+    if x >=20:
+        print("You're rich!")
+    elif 0<x<20:
+        print("You're broke!")
+    elif x<0:
+        print("Money cannot be negative!")
+        
+x=float(input("How much money do you have in your wallet? "))
+richbroke(x)
+
+## Activity 2
+def catdog():
+    c=input("Do you have cats? ")
+    d=input("Do you have dogs? ")
+    if c.lower()=="yes" and d.lower()=="yes":
+        print("You must really love pets! ")
+    else:
+        print("Maybe you need more pets. ")
+           
+catdog()
+
+c=input("Do you have cats? ")
+d=input("Do you have dogs? ")
+if c.lower()=="yes" and d.lower()=="yes":
+    print("You must really love pets! ")
+elif c.lower()=="no" and d.lower()=="no":
+    print("Maybe you need more pets. ")
+elif c.lower()=="yes" and d.lower()=="no":
+    print("Maybe you need more pets. ")
+elif c.lower()=="no" and d.lower()=="yes":
+    print("Maybe you need more pets. ")
+else:
+    print("Yes/no answers only")
+    
+## Activity 3
+def quiz():
+    correctans=0
+    x=input("Question 1: We have 7 planets in our solar system. True/False? ")
+    y=input("Question 2: The sun is a planet. True/False? ")
+    z=input("Question 3: Earth is the third planet from the sun. True/False? ")
+    
+    if x.lower()=="true" and y.lower()=="true" and z.lower()=="false":
+        print("Question 1: We have 7 planets in our solar system. True/False?")
+        print("You answered True")
+        print("The correct answer is False")
+        
+        print("Question 2: The sun is a planet. True/False?")
+        print("You answered True")
+        print("The correct answer is False")
+        
+        print("Question 3: Earth is the third planet from the sun. True/False?")
+        print("You answered False")
+        print("The correct answer is True")
+        
+        print(f"You got {correctans}/3 questions correct. ")
+        
+    elif x.lower()=="false" and y.lower()=="true" and z.lower()=="false":
+        print("Question 1: We have 7 planets in our solar system. True/False?")
+        print("You answered False")
+        print("The correct answer is False")
+        correctans +=1
+        
+        print("Question 2: The sun is a planet. True/False?")
+        print("You answered True")
+        print("The correct answer is False")
+        
+        print("Question 3: Earth is the third planet from the sun. True/False?")
+        print("You answered False")
+        print("The correct answer is True")
+        
+        
+        print(f"You got {correctans}/3 questions correct. ")
+        
+    elif x.lower()=="false" and y.lower()=="false" and z.lower()=="false":
+        print("Question 1: We have 7 planets in our solar system. True/False?")
+        print("You answered False")
+        print("The correct answer is False")
+        correctans +=1
+        
+        print("Question 2: The sun is a planet. True/False?")
+        print("You answered False")
+        print("The correct answer is False")
+        correctans +=1
+        
+        print("Question 3: Earth is the third planet from the sun. True/False?")
+        print("You answered False")
+        print("The correct answer is True")
+        
+        
+        print(f"You got {correctans}/3 questions correct. ")
+        
+    elif x.lower()=="false" and y.lower()=="false" and z.lower()=="true":
+        print("Question 1: We have 7 planets in our solar system. True/False?")
+        print("You answered False")
+        print("The correct answer is False")
+        
+        
+        print("Question 2: The sun is a planet. True/False?")
+        print("You answered False")
+        print("The correct answer is False")
+        
+        
+        print("Question 3: Earth is the third planet from the sun. True/False?")
+        print("You answered True")
+        print("The correct answer is True")
+        correctans=3
+        
+        
+        print(f"You got {correctans}/3 questions correct. ")
+        
+    elif x.lower()=="true" and y.lower()=="false" and z.lower()=="false":
+        print("Question 1: We have 7 planets in our solar system. True/False?")
+        print("You answered True")
+        print("The correct answer is False")
+        
+        
+        print("Question 2: The sun is a planet. True/False?")
+        print("You answered False")
+        print("The correct answer is False")
+        correctans +=1
+        
+        print("Question 3: Earth is the third planet from the sun. True/False?")
+        print("You answered False")
+        print("The correct answer is True")
+        
+        
+        print(f"You got {correctans}/3 questions correct. ")
+        
+    elif x.lower()=="true" and y.lower()=="false" and z.lower()=="true":
+        print("Question 1: We have 7 planets in our solar system. True/False?")
+        print("You answered True")
+        print("The correct answer is False")
+        
+        
+        print("Question 2: The sun is a planet. True/False?")
+        print("You answered False")
+        print("The correct answer is False")
+        correctans +=1
+        
+        print("Question 3: Earth is the third planet from the sun. True/False?")
+        print("You answered True")
+        print("The correct answer is True")
+        correctans +=1
+        
+        
+        print(f"You got {correctans}/3 questions correct. ")
+        
+    elif x.lower()=="false" and y.lower()=="true" and z.lower()=="true":
+        print("Question 1: We have 7 planets in our solar system. True/False?")
+        print("You answered False")
+        print("The correct answer is False")
+        correctans+=1
+        
+        
+        print("Question 2: The sun is a planet. True/False?")
+        print("You answered True")
+        print("The correct answer is False")
+        
+        print("Question 3: Earth is the third planet from the sun. True/False?")
+        print("You answered True")
+        print("The correct answer is True")
+        correctans +=1
+        
+        
+        print(f"You got {correctans}/3 questions correct. ")
+        
+    elif x.lower()=="true" and y.lower()=="true" and z.lower()=="true":
+        print("Question 1: We have 7 planets in our solar system. True/False?")
+        print("You answered True")
+        print("The correct answer is False")
+        
+        
+        print("Question 2: The sun is a planet. True/False?")
+        print("You answered True")
+        print("The correct answer is False")
+        
+        
+        print("Question 3: Earth is the third planet from the sun. True/False?")
+        print("You answered True")
+        print("The correct answer is True")
+        correctans +=1
+        
+        
+        print(f"You got {correctans}/3 questions correct. ")
+        
+    else:
+        print("True/false only")
+        
+quiz()
+
+## Activity 4
+def summer(x):
+    if x.lower()=="spring":
+        print("I can smell the flowers! ")
+        
+    elif x.lower()=="summer":
+        print("Make sure the ac is working! ")
+        
+    elif x.lower()=="fall" or x.lower()=="autumn":
+        print("I bet the leaves are pretty there! ")
+        
+    elif x.lower()=="fall" or x.lower()=="winter":
+        print("I hope you're ready for snow! ")
+        
+    else:
+        print("I don't recognise the season. ")
+        
+x=input("What is the season there now? ")
+summer(x)
+
+## Self-Assessment
+def teamsorter(x):
+    if x.lower().startswith("a")==True or x.lower().startswith("b")==True or x.lower().startswith("c")==True or x.lower().startswith("d")==True:
+        print(f"Aha {x.title()}! You're on the team \"Red Dragons\"! ")
+        print("Good luck for the game! ")
+        
+    elif x.lower().startswith("e")==True or x.lower().startswith("f")==True or x.lower().startswith("g")==True or x.lower().startswith("h")==True:
+        print(f"Aha {x.title()}! You're on the team \"Dark Wizards\"! ")
+        print("Good luck for the game! ")
+        
+    elif x.lower().startswith("i")==True or x.lower().startswith("j")==True or x.lower().startswith("k")==True or x.lower().startswith("l")==True:
+        print(f"Aha {x.title()}! You're on the team \"Moving Castles\"! ")
+        print("Good luck for the game! ")
+        
+    elif x.lower().startswith("m")==True or x.lower().startswith("n")==True or x.lower().startswith("o")==True or x.lower().startswith("p")==True:
+        print(f"Aha {x.title()}! You're on the team \"Golden Snitches\"! ")
+        print("Good luck for the game! ")
+        
+    elif x.lower().startswith("q")==True or x.lower().startswith("r")==True or x.lower().startswith("s")==True or x.lower().startswith("t")==True:
+        print(f"Aha {x.title()}! You're on the team \"Night Guards\"! ")
+        print("Good luck for the game! ")
+        
+    elif x.lower().startswith("u")==True or x.lower().startswith("v")==True or x.lower().startswith("w")==True or x.lower().startswith("x")==True or x.lower().startswith("y")==True or x.lower().startswith("z")==True:
+        print(f"Aha {x.title()}! You're on the team \"Black Holes\"! ")
+        print("Good luck for the game! ")
+        
+x=input("What is your first name? ")
+
+teamsorter(x)
+
