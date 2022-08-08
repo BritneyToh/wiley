@@ -425,3 +425,181 @@ x=input("What is your first name? ")
 
 teamsorter(x)
 
+## Coffeeshop
+def coffeeorder():
+    s=input("Do you want small, medium or large? ")
+    t=input("Do you want brewed, espresso or cold press? ")
+    f=input("Do you want hazelnut, vanilla, caramel or none? ")
+    cost=0
+    
+    if s.lower()=="small":
+        if t.lower()=="brewed":
+            if f.lower()=="none":
+                cost=cost+2
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            elif f.lower()=="hazelnut" or f.lower()=="vanilla" or f.lower()=="caramel":
+                cost=cost+2+0.50
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            else:
+                print("That flavor does not exist. ")
+                
+        elif t.lower()=="espresso":
+            if f.lower()=="none":
+                cost=cost+2+0.50
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            elif f.lower()=="hazelnut" or f.lower()=="vanilla" or f.lower()=="caramel":
+                cost=cost+2+0.50+0.50
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            else:
+                print("That flavor does not exist. ")
+            
+            
+        elif t.lower()=="cold press":
+            if f.lower()=="none":
+                cost=cost+2+1
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            elif f.lower()=="hazelnut" or f.lower()=="vanilla" or f.lower()=="caramel":
+                cost=cost+2+0.50+1
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            else:
+                print("That flavor does not exist. ")
+         
+    if s.lower()=="medium":
+        if t.lower()=="brewed":
+            if f.lower()=="none":
+                cost=cost+3
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            elif f.lower()=="hazelnut" or f.lower()=="vanilla" or f.lower()=="caramel":
+                cost=cost+3+0.50
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            else:
+                print("That flavor does not exist. ")
+                
+        elif t.lower()=="espresso":
+            if f.lower()=="none":
+                cost=cost+3+0.50
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            elif f.lower()=="hazelnut" or f.lower()=="vanilla" or f.lower()=="caramel":
+                cost=cost+3+0.50+0.50
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            else:
+                print("That flavor does not exist. ")
+            
+            
+        elif t.lower()=="cold press":
+            if f.lower()=="none":
+                cost=cost+3+1
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            elif f.lower()=="hazelnut" or f.lower()=="vanilla" or f.lower()=="caramel":
+                cost=cost+3+0.50+1
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            else:
+                print("That flavor does not exist. ")
+       
+    if s.lower()=="large":
+        if t.lower()=="brewed":
+            if f.lower()=="none":
+                cost=cost+4
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            elif f.lower()=="hazelnut" or f.lower()=="vanilla" or f.lower()=="caramel":
+                cost=cost+4+0.50
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            else:
+                print("That flavor does not exist. ")
+                
+        elif t.lower()=="espresso":
+            if f.lower()=="none":
+                cost=cost+4+0.50
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            elif f.lower()=="hazelnut" or f.lower()=="vanilla" or f.lower()=="caramel":
+                cost=cost+4+0.50+0.50
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            else:
+                print("That flavor does not exist. ")
+            
+            
+        elif t.lower()=="cold press":
+            if f.lower()=="none":
+                cost=cost+4+1
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            elif f.lower()=="hazelnut" or f.lower()=="vanilla" or f.lower()=="caramel":
+                cost=cost+4+0.50+1
+                tip=cost*0.15
+                costwithtip=cost + tip
+                print(f"Your cup of coffee cost {cost}")
+                print(f"The price with tip is {costwithtip}")
+                
+            else:
+                print("That flavor does not exist. ")
+                
+                
+coffeeorder()
+
