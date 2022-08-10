@@ -1,0 +1,213 @@
+## Basic Data Structures
+## Activity 1
+def userdata():
+    userlist=[]
+    name=input("What is your name? ")
+    age=int(input("What is your age? "))
+    birthday=input("When is your birthday? ")
+    userlist.append(name)
+    userlist.append(age)
+    userlist.append(birthday)
+
+    return userlist
+
+userdata()
+
+## Activity 2
+def userdata():
+    userlist=[]
+    name=input("What is your name? ")
+    age=int(input("What is your age? "))
+    birthday=input("When is your birthday? ")
+    
+    address=input("What is your address? ")
+    gender=input("Are you male or female? ")
+    userlist.append(name)
+    userlist.append(age)
+    userlist.append(birthday)
+    userlist.append(address)
+    userlist.append(gender)
+    return userlist
+
+userdata()
+
+## Activity 3
+def userdata():
+    userlist=[]
+    name=input("What is your name? ")
+    age=int(input("What is your age? "))
+    birthday=input("When is your birthday? ")
+    
+    address=input("What is your address? ")
+    gender=input("Are you male or female? ")
+    
+    job=input("What are you working as? ")
+    children=int(input("How many children do you have? "))
+    
+    userlist.append(name)
+    userlist.append(age)
+    userlist.append(birthday)
+    userlist.append(address)
+    userlist.append(gender)
+    userlist.append(job)
+    userlist.append(children)
+    print(userlist)
+    
+    x=input("What is the item you want to remove from list? Choose from name,age,birthday,address,job and children. ")
+    if x.lower()=="name":
+        del userlist[0]
+    elif x.lower()=="age":
+        del userlist[1]
+    elif x.lower()=="birthday":
+        del userlist[2]
+    elif x.lower()=="address":
+        del userlist[3]
+    elif x.lower()=="gender":
+        del userlist[4]
+    elif x.lower()=="job":
+        del userlist[5]
+    elif x.lower()=="children":
+        del userlist[6]
+    print(userlist)
+
+userdata()
+
+## Activity 4
+def userdata():
+    userlist=[]
+    name=input("What is your name? ")
+    age=int(input("What is your age? "))
+    birthday=input("When is your birthday? ")
+    
+    address=input("What is your address? ")
+    gender=input("Are you male or female? ")
+    
+    job=input("What are you working as? ")
+    children=int(input("How many children do you have? "))
+    
+    userlist.append(name)
+    userlist.append(age)
+    userlist.append(birthday)
+    userlist.append(address)
+    userlist.append(gender)
+    userlist.append(job)
+    userlist.append(children)
+    print(userlist)
+    
+    x=input("What is the item you want to update from list? Choose from name,age,birthday,address,job and children. ")
+    if x.lower()=="name":
+        updated_name=input("What is your new name? ")
+        userlist[0]=updated_name
+        print(userlist)
+    elif x.lower()=="age":
+        updated_age=input("What is your new age? ")
+        userlist[1]=updated_age
+        print(userlist)
+    elif x.lower()=="birthday":
+        updated_bd=input("What is your new birthday? ")
+        userlist[2]=updated_bd
+        print(userlist)
+    elif x.lower()=="address":
+        updated_ad=input("What is your new address? ")
+        userlist[3]=updated_ad
+        print(userlist)
+    elif x.lower()=="gender":
+        updated_gender=input("What is your new gender? ")
+        userlist[4]=updated_gender
+        print(userlist)
+    elif x.lower()=="job":
+        updated_job=input("What is your new job? ")
+        userlist[5]=updated_job
+        print(userlist)
+    elif x.lower()=="children":
+        updated_cd=input("What is your new number of children? ")
+        userlist[6]=updated_cd
+        print(userlist)
+    
+
+userdata()
+
+## Activity 5
+def userdata():
+    firstname=input("What is your first name? ")
+    lastname=input("What is your last name? ")
+    nametuple=(firstname,lastname)
+    job=input("What is your current profession? ")
+    jobtuple=(job,)
+    address=input("What is your current address? ")
+    addresstuple=(address,)
+    prevaddress=input("What was your previous address? ")
+    prevaddresstuple=(prevaddress,)
+    print(nametuple)
+    print(jobtuple)
+    print(addresstuple)
+    print(prevaddresstuple)
+    usertuple=(nametuple+jobtuple+addresstuple+prevaddresstuple)
+    print(usertuple)
+
+userdata()
+
+## Activity 6
+def userdata():
+    firstname=input("What is your first name? ")
+    lastname=input("What is your last name? ")
+    nametuple=(firstname,lastname)
+    job=input("What is your current profession? ")
+    jobtuple=(job,)
+    address=input("What is your current address? ")
+    addresstuple=(address,)
+    prevaddress=input("What was your previous address? ")
+    prevaddresstuple=(prevaddress,)
+    
+    usertuple=(nametuple+jobtuple+addresstuple+prevaddresstuple)
+    print(usertuple)
+    
+    x=input("Do you want to change your first name, last name, job, current address or previous address?")
+    if x.lower()=="first name":
+        updated_fn=input("What is your new first name? ")
+        l=list(nametuple)
+        l[0]=updated_fn
+        usertuple=(tuple(l)+jobtuple+addresstuple+prevaddresstuple)
+        print(usertuple)
+        
+    elif x.lower()=="last name":
+        updated_ln=input("What is your new last name? ")
+        l=list(nametuple)
+        l[l]=updated_ln
+        usertuple=(tuple(l)+jobtuple+addresstuple+prevaddresstuple)
+        print(usertuple)
+        
+    elif x.lower()=="job":
+        updated_job=input("What is your new job? ")
+        l=list(jobtuple)
+        l[0]=updated_job
+        usertuple=(nametuple+tuple(l)+addresstuple+prevaddresstuple)
+        print(usertuple)
+        
+    elif x.lower()=="current address":
+        updated_ca=input("What is your new current address? ")
+        l=list(addresstuple)
+        l[0]=updated_ca
+        usertuple=(nametuple+jobtuple+tuple(l)+prevaddresstuple)
+        print(usertuple)
+        
+    elif x.lower()=="previous address":
+        updated_pa=input("What is your new previous address? ")
+        l=list(prevaddresstuple)
+        l[0]=updated_pa
+        usertuple=(nametuple+jobtuple+addresstuple+tuple(l))
+        print(usertuple)
+
+userdata()
+
+## Self Assessment: Manipulating Collections
+x=(4,1,2,3,5,7,9,0,-1,3,6,7)
+l=list(x)
+
+l1=l[:4]
+l2=l[4:8]
+l3=l[8:12]
+
+print(l1[::-1])
+print(l2[::-1])
+print(l3[::-1])
