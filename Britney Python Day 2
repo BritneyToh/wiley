@@ -211,3 +211,221 @@ l3=l[8:12]
 print(l1[::-1])
 print(l2[::-1])
 print(l3[::-1])
+
+## Loops
+## Activity 1
+fruit_list = ["apple", "banana", "cherry", "gooseberry",
+"kumquat", "orange", "pineapple"]
+
+for item in fruit_list:
+    print(item)
+    
+## Activity 2
+x=input("Key in a word: ")
+
+for letter in x:
+    print(letter)
+    
+## Activity 3
+x=input("Key in a word: ")
+i=0
+
+for letter in x:
+    i+=1
+print(i)
+
+## Activity 4
+a = ["a", "bc", "rye", "hello", "c", ""]
+result=list(filter(lambda x: (len(x)>2),a))
+print(result)
+
+## Activity 5
+# Script 1
+x=[]
+for num in range(100,1001):
+    if num%50==0:
+        x.append(num)
+print(x)
+
+# Script 2
+x=100
+y=[]
+
+while x<1001:
+    x=x+1
+    if x%50==0:
+        print(x)     
+        
+## Activity 6
+i=0
+for num in range(0,101):
+    i+=num
+print(i)
+
+## Activity 7
+factoriallist=[]
+x=int(input("Key in a number: "))
+
+for num in range(1,x+1):
+    if x%num==0:
+        factoriallist.append(num)
+        
+print(factoriallist)
+
+## Activity 8
+fruit_list = ["apple", "banana", "cherry", "gooseberry",
+"kumquat", "orange", "pineapple"]
+
+continuer=True
+
+while continuer:
+    fruit_user=input("Key in the name of a fruit: ")
+    for elements in fruit_list:
+        if fruit_user.lower() in fruit_list:
+            print(f"The fruit you chose is in the list, at index {fruit_list.index(fruit_user.lower())} ")
+            continuer=False
+            break
+            
+        else:
+            print("The fruit you chose is not in the list. Try again. ")
+            break
+            
+## Activity 9
+count=0
+total=0
+
+while True:
+        numlist = input('Enter number\n')
+        if numlist.lower() == 'quit':
+                break
+        try:
+                count = count + 1
+                total = total + float(numlist)
+        except:
+                count = count - 1
+                print('Enter a valid number')
+                continue
+                
+print('Count:',count)
+print('Total:',total)
+
+## Activity 10
+x=int(input("Key in an integer value: "))
+total=1
+
+for num in range(1,x**2):
+    print(x*num)
+    
+## Activity 11
+Number = 1
+
+while(Number <= 100):
+    count = 0
+    i = 2
+    
+    while(i <= Number//2):
+        if(Number % i == 0):
+            count = count + 1
+            break
+        i = i + 1
+
+    if (count == 0 and Number != 1):
+        print(" %d" %Number, end = '  ')
+    Number = Number  + 1
+    
+ ## Activity 12
+ def gcd(x, y):
+
+    if x > y:
+        smaller = y
+    else:
+        smaller = x
+    for i in range(1, smaller+1):
+        if((x % i == 0) and (y % i == 0)):
+            gcd = i 
+    return gcd
+
+x = int(input("Enter an integer: ")) 
+y = int(input("Enter another integer: "))
+
+print("The GCD is", gcd(x, y))
+
+## Activity 13
+number=int(input("Enter any Number"))
+print("Digit\tFrequency")
+for i in range(0,10):
+    count=0;
+    temp=number;
+    while temp>0:
+        digit=temp%10
+        if digit==i:
+            count=count+1
+        temp=temp//10;
+    if count>0:
+        print(i,"\t",count)
+        
+## Activity 14
+def lcm(x, y):
+
+    if x > y:
+        greater = x
+    else:
+        greater = y
+    
+    while True:
+        if((greater % x == 0) and (greater % y == 0)):
+            lcm = greater
+            break
+        greater += 1
+
+    return lcm 
+
+x = int(input("Enter an integer: ")) 
+y = int(input("Enter another integer: "))
+
+print("The LCM is", lcm(x, y))
+
+## Activity 15
+Number = int(input('Enter the Number : '))
+arr = []
+for i in range(2, Number):
+    flag = 0
+    for j in range(2, i):
+        if i % j == 0:
+            flag = 1
+    if flag == 0:
+        arr.append(i)
+flag = 0
+for i in range(len(arr)):
+    for j in range(i + 1, len(arr)):
+        if arr[i] + arr[j] == Number:
+            flag = 1
+            print(str(arr[i]) + " and " + str(arr[j]) + ' are prime numbers when added gives ' + str(Number))
+            break
+if flag == 0:
+    print('No Prime numbers can give sum of ' + str(Number))
+    
+## Self-assessment: FizzBuzz
+x=int(input("Key in an integer value: "))
+
+
+def fizzbuzz(x):
+    for num in range(0,x+1):
+        if num%3==0 and num%5!=0:
+            print("fizz")
+            continue
+        elif num%3!=0 and num%5==0:
+            print("buzz")
+            continue
+        elif num%3==0 and num%5==0:
+            print("fizzbuzz")
+            continue
+        elif num==x:
+            print("TRADITION!")
+        else:
+            print(num)
+            
+    
+fizzbuzz(x)
+
+
