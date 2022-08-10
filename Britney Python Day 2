@@ -428,4 +428,142 @@ def fizzbuzz(x):
     
 fizzbuzz(x)
 
+## Dictionaries and sets
+## Activity 1
+test = {"hello":4,"world":4,"I":1,"am":2,"Martha":3}
 
+sum=0
+for i in test.values():
+    sum+=i
+    
+print(sum)
+
+## Activity 2
+test = {"hello":4,"world":4,"I":1,"am":2,"Martha":3}
+
+l=[]
+
+for i in test.values():
+    l.append(i)
+    
+print(f"Minimum value: {min(l)}")
+print(f"Maximum value: {max(l)}")
+
+## Activity 3
+x=(1,2,3,4,5)
+sum=0
+
+for item in x:
+    sum+=item
+    
+print(sum)
+
+## Activity 4
+x=(1,2,3,4,5)
+
+print(f"Minimum value: {min(x)}")
+print(f"Maximum value: {max(x)}")
+
+## Activity 5
+storage = {
+    "cupboard" : ["spices", "flour", "sugar"],
+    "drawer" : ["fork", "knife", "spoon"],
+    "fridge" : ["butter", "milk", "cheese"],
+    "emergency jar" : 150
+}
+
+storage["freezer"]=["ice cubes","ice cream","pepporoni pizza"]
+
+print(sorted(storage["cupboard"]))
+print()
+
+storage["fridge"].append("cream")
+
+storage["cupboard"].remove("sugar")
+
+storage["emergency jar"]=125
+
+print(storage)
+
+## Activity 6
+shopping_list = {
+    "milk" : 4,
+    "butter" : 2,
+    "crackers" : 1.5,
+    "rice" : 2.25,
+    "spaghetti" : 1.75,
+    "dish soap": 3.25
+}
+
+for key,value in shopping_list.items():
+    print(f"{key} \n price: {value}")
+    
+total_cost=0
+for value in shopping_list.values():
+    total_cost+=value
+print()
+print(f"The total cost is: ${total_cost}")
+
+## Activity 7
+price = {
+    "milk" : 4,
+    "butter" : 2,
+    "crackers" : 1.5,
+    "rice" : 2.25,
+    "spaghetti" : 1.75,
+    "dish soap": 3.25
+}
+
+quantity = {
+    "milk" : 1,
+    "butter" : 1,
+    "crackers" : 3,
+    "rice" : 2,
+    "spaghetti" : 5,
+    "dish soap": 1
+}
+
+result = {key: price[key] * quantity[key] for key in price}
+print(result)
+
+total_cost=0
+for value in result.values():
+    total_cost+=value
+print()
+print(f"The total cost is: ${total_cost}")
+
+## Self-Assessment: Dictionaries and sets
+fruit_set = {"apple", "banana", "cherry", "gooseberry",
+"kumquat", "orange", "pineapple"}
+fruit_list = list(fruit_set)
+
+continuer=True
+
+while continuer:
+    fruit_user=input("Key in the name of a fruit: ")
+    user_input=input("Would you like to add or remove the fruit? Key in quit to exit. ")
+
+    if user_input.lower()=="add":
+        if fruit_user.lower() in fruit_list:
+            print(f"The fruit you chose is in the list, at index {fruit_list.index(fruit_user.lower())} ")
+            print(fruit_list)
+            
+            
+        elif fruit_user.lower() not in fruit_list:
+            fruit_list.append(fruit_user.lower())
+            print(fruit_list)
+            
+    elif user_input.lower()=="remove":
+        if fruit_user.lower() in fruit_list:
+            fruit_list.remove(fruit_user.lower())
+            print(fruit_list)
+            
+        else:
+            print("Sorry, fruit is not in the set! ")
+            print(fruit_list)
+            
+    elif user_input.lower()=="quit":
+        print(fruit_list)
+        continuer=False
+        break
+            
