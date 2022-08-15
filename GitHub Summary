@@ -1,0 +1,25 @@
+## GitHub Commands:
+## Change to directory I want to add files in 
+cd myproject/
+
+## Initialise git repository in the root of the folder
+git init
+
+## Create new file in directory
+touch filename.txt
+
+## See which files git knows exist
+git status
+
+## Add file to staging environment
+## File has NOT YET to be committed, but is about to be
+git add <filename>
+
+## Commit: Changes I have made since the last time I made a commit
+git commit -m "My message about the commit (Changes made to the file)"
+
+## Create a new branch: Make changes to different parts of a project without affecting the main part
+git checkout -b <my branch name> (Create new branch + move to that branch)
+git branch (Confirm that branch was created)
+
+## Create a new repository on GitHub
