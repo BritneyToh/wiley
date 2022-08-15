@@ -51,4 +51,12 @@ git push
 ## Move back to main branch
 git branch main
 
+### deletes the LOCAL copy of the branch, not the remote
+git -d <branch name>
+### deletes the REMOTE copy of the branch, not the local
+git push origin --delete <branch name>
+** need to do both local and remote deletion to remove the branch totally
+
+### merges the named branch with the current branch that you're in
+git merge <branch name>
 
