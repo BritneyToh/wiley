@@ -23,3 +23,30 @@ git checkout -b <my branch name> (Create new branch + move to that branch)
 git branch (Confirm that branch was created)
 
 ## Create a new repository on GitHub
++ sign beside profile -> create new repository
+
+## Add local repository to GitHub
+git remote add origin <github repo link>
+git push -u origin master
+
+## Adding a branch onto the repository
+git push origin my-new-branch
+
+## Or clone from someone else's repository
+git clone <https://someone else's link>
+cd <nameofsomeoneelse'srepo>
+
+## Add file to someone else's repository
+touch newfile.txt
+git add newfile.txt
+
+## Upload to someone else's repository
+git push
+
+## Create a pull request: PULL FIRST BEFORE I PUSH IF I CLASH WITH SOMEONE UPLOADING AT THE SAME TIME
+## Pull requests let you tell others about changes you've pushed to a branch in a repository on GitHub.
+git pull
+git push
+
+
+
