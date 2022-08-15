@@ -1,0 +1,286 @@
+## Classes and Objects Activity
+class Book:
+    def __init__(self, title, subtitle, price, authors):
+        self.title = title
+        self.subtitle = subtitle
+        self.price = price
+
+        self.authors = authors
+
+class Author:
+    def __init__(self, fname, lname):
+        self.fname = fname
+        self.lname = lname
+        
+    def __str__(self):
+        return f"{self.fname} {self.lname}"
+    
+    def __repr__(self):   # Produces a string to format object
+        return 'Author(' + self.fname + ',' + self.lname + ')'
+    
+author_1 = Author("Jeffrey", "Archer")
+author_2 = Author("Arthur", "Shakespeare")
+author_3 = Author("Victor", "Hugo")
+
+print (author_1)
+
+authors = [author_1, author_2, author_3]
+
+novel = Book("The Great War", "An Interesting Story", 39.95, authors)
+
+print (f"Book: {novel.title} -- {novel.subtitle}")
+print ()
+print (f" {novel.authors}")
+print ()
+print (f"Author 1: {novel.authors[0]}")
+print (f"Author 2: {novel.authors[1]}")
+print (f"Author 3: {novel.authors[2]}")
+print(novel.price)
+
+## Classes and Objects: Self-Assessment
+class simplecalculator():
+    def __init__(self,a,b):
+        self.a=a
+        self.b=b
+    def add(self):
+        return self.a+self.b
+    def mul(self):
+        return self.a*self.b
+    def div(self):
+        return self.a/self.b
+    def sub(self):
+        return self.a-self.b
+    
+a=int(input("Enter first number: "))
+b=int(input("Enter second number: "))
+obj=simplecalculator(a,b)
+choice=1
+
+while choice!=0:
+    print("0. Exit")
+    print("1. Add")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    choice=int(input("Enter choice: "))
+    
+    if choice==1:
+        print("Result: ",obj.add())
+    elif choice==2:
+        print("Result: ",obj.sub())
+    elif choice==3:
+        print("Result: ",obj.mul())
+    elif choice==4:
+        print("Result: ",round(obj.div(),2))
+    elif choice==0:
+        print("Exiting!")
+    else:
+        print("Invalid choice!!")
+ 
+ 
+print()
+
+## Inheritance Activity
+## Activity 0
+class Employee():
+    def __init__(self,name,age,gender,department,msalary,status):
+        self.name=name
+        self.age=age
+        self.gender=gender
+        self.department=department
+        self.msalary=msalary
+        self.status=status
+        
+        def __str__(self):
+            return f"Name:{self.name}\n Age:{age}\n Gender:{self.gender}\n Department:{self.department}\n Monthly Salary:{self.msalary}\n Status:{self.status}"
+            
+## Activity 1 and 2
+class Tech(Employee):                                        # Employee is the parent class, Tech is the child class
+    def __init__(self, name, age, gender, department, msalary, status, responsibilities, office_location):
+        super().__init__(name, age, gender, department, msalary, status)
+        self.responsibilities = responsibilities
+        self.office_location = office_location
+        
+    def __str__(self):
+            return f" Name:{self.name}\n Age:{self.age}\n Gender:{self.gender}\n Department:{self.department}\n Monthly Salary:{self.msalary}\n Status:{self.status}\n Responsibilities:{self.responsibilities}\n Office:{self.office_location}"
+        
+Instance1=Tech("Daniel Tan",27,"M","IT",7800,"Active",["Programming","Data Analytics"],"Orchard")
+Instance2=Tech("Shannon Lim",24,"F","IT",5900,"Active",["Programming","Web Design"],"Buona Vista")
+
+print(Instance1)
+print()
+print(Instance2)
+
+## Activity 3
+class codingskilllevel(Employee):
+    def __init__(self, name, age, gender, department, msalary, status, python, HTML, CSS, javascript, experience):
+        super().__init__(name, age, gender, department, msalary, status)
+        self.python=python
+        self.HTML=HTML
+        self.CSS=CSS
+        self.javascript=javascript
+        self.experience=experience
+        
+    def __str__(self):
+        return f" Name:{self.name}\n Age:{self.age}\n Gender:{self.gender}\n Department:{self.department}\n Monthly Salary:{self.msalary}\n Status:{self.status}\n python skill level:{self.python}\n HTML skill level:{self.HTML}\n CSS skill level:{self.CSS}\n javascript skill level:{self.javascript}\n Years of Experience:{self.experience}"
+
+class Faculty(Employee):                                       
+    def __init__(self, name, age, gender, department, msalary, status, modules_taught, research_areas):
+        super().__init__(name, age, gender, department, msalary, status)
+        self.modules_taught = modules_taught
+        self.research_areas = research_areas
+        
+    def __str__(self):
+            return f" Name:{self.name}\n Age:{self.age}\n Gender:{self.gender}\n Department:{self.department}\n Monthly Salary:{self.msalary}\n Status:{self.status}\n Modules Taught:{self.modules_taught}\n Research Areas:{self.research_areas}"
+            
+Instance3=Faculty("Gary Chan",  39, "M", "Wakawaski", 12000, "Active", ["CS2400","K6301", "CI6207"],["crisis communication", "fake news", "social media analytics"])
+Instance4=codingskilllevel("Daniel Tan",27,"M","IT",7800,"Active",10,7,5,9,2)
+
+print(Instance3)
+print(Instance4)
+
+## Activity 4
+class Employee():
+    def __init__(self,name,age,gender,department,msalary,status):
+        self.name=name
+        self.age=age
+        self.gender=gender
+        self.department=department
+        self.msalary=msalary
+        self.status=status
+        
+    def __str__(self):
+        return f" Name:{self.name}\n Age:{self.age}\n Gender:{self.gender}\n Department:{self.department}\n Monthly Salary:{self.msalary}\n Status:{self.status}"
+        
+class Tech(Employee):                                       
+    def __init__(self, name, age, gender, department, msalary, status, responsibilities, office_location):
+        super().__init__(name, age, gender, department, msalary, status)
+        self.responsibilities = responsibilities
+        self.office_location = office_location
+        
+    def __str__(self):
+            return f" Name:{self.name}\n Age:{self.age}\n Gender:{self.gender}\n Department:{self.department}\n Monthly Salary:{self.msalary}\n Status:{self.status}\n Responsibilities:{self.responsibilities}\n Office:{self.office_location}"
+        
+class codingskilllevel(Employee):
+    def __init__(self, name, age, gender, department, msalary, status, python, HTML, CSS, javascript, experience):
+        super().__init__(name, age, gender, department, msalary, status)
+        self.python=python
+        self.HTML=HTML
+        self.CSS=CSS
+        self.javascript=javascript
+        self.experience=experience
+        
+    def __str__(self):
+        return f" Name:{self.name}\n Age:{self.age}\n Gender:{self.gender}\n Department:{self.department}\n Monthly Salary:{self.msalary}\n Status:{self.status}\n python skill level:{self.python}\n HTML skill level:{self.HTML}\n CSS skill level:{self.CSS}\n javascript skill level:{self.javascript}\n Years of Experience:{self.experience}"
+
+class Faculty(Employee):                                       
+    def __init__(self, name, age, gender, department, msalary, status, modules_taught, research_areas):
+        super().__init__(name, age, gender, department, msalary, status)
+        self.modules_taught = modules_taught
+        self.research_areas = research_areas
+        
+    def __str__(self):
+            return f" Name:{self.name}\n Age:{self.age}\n Gender:{self.gender}\n Department:{self.department}\n Monthly Salary:{self.msalary}\n Status:{self.status}\n Modules Taught:{self.modules_taught}\n Research Areas:{self.research_areas}"
+        
+Instance1=Tech("Daniel Tan",27,"M","IT",7800,"Active",["Programming","Data Analytics"],"Orchard")
+Instance2=Tech("Shannon Lim",24,"F","IT",5900,"Active",["Programming","Web Design"],"Buona Vista")
+Instance3=Faculty("Gary Chan",  39, "M", "Wakawaski", 12000, "Active", ["CS2400","K6301", "CI6207"],["crisis communication", "fake news", "social media analytics"])
+Instance4=codingskilllevel("Daniel Tan",27,"M","IT",7800,"Active",10,7,5,9,2)
+Instance5=Employee("James Seah",22,"M","HR",800,"Active")
+Instance6=Employee("Thok Kye",35,"M","Marketing",7200,"Active")
+
+print(Instance1)
+print()
+print(Instance2)
+print()
+print(Instance3)
+print()
+print(Instance4)
+print()
+print(Instance5)
+print()
+print(Instance6)
+
+## Activity 5
+class Intern(Tech):                                       
+    def __init__(self, name, age, gender, department, msalary, status, responsibilities, office_location, intern_duration, school):
+        super().__init__(name, age, gender, department, msalary, status, responsibilities, office_location)
+        self.intern_duration = intern_duration
+        self.school = school
+        
+    def __str__(self):
+            return f" Name:{self.name}\n Age:{self.age}\n Gender:{self.gender}\n Department:{self.department}\n Monthly Salary:{self.msalary}\n Status:{self.status}\n Responsibilities:{self.responsibilities}\n Office:{self.office_location}\n Intern Duration:{self.intern_duration}\n School:{self.school}"
+                
+                
+Instance1=Tech("Daniel Tan",27,"M","IT",7800,"Active",["Programming","Data Analytics"],"Orchard")
+Instance2=Tech("Shannon Lim",24,"F","IT",5900,"Active",["Programming","Web Design"],"Buona Vista")
+Instance3=Faculty("Gary Chan",  39, "M", "Wakawaski", 12000, "Active", ["CS2400","K6301", "CI6207"],["crisis communication", "fake news", "social media analytics"])
+Instance4=codingskilllevel("Daniel Tan",27,"M","IT",7800,"Active",10,7,5,9,2)
+Instance5=Employee("James Seah",22,"M","HR",2300,"Active")
+Instance6=Employee("Thok Kye",35,"M","Marketing",7200,"Active")
+Instance7=Intern("Rachelle Loh",22,"F","IT",1000,"Active","Data Analytics","Orchard","6 months","Nanyang Technological University")
+Instance8=Intern("Jeremy Lim",24,"M","Wakawaski",1000,"Active","Crisis research","Orchard","9 months","Nanyang Technological University")
+
+
+
+print(Instance1)
+print()
+print(Instance2)
+print()
+print(Instance3)
+print()
+print(Instance4)
+print()
+print(Instance5)
+print()
+print(Instance6)
+print()
+print(Instance7)
+print()
+print(Instance8)
+
+## Activity 6
+isinstance(Instance8,Intern)
+
+## Inheritance Self-Assessment
+class FileItem():
+    def __init__(self,name,identifier,filetype,location,size,owner):
+        self.name=name
+        self.identifier=identifier
+        self.filetype=filetype
+        self.location=location
+        self.size=size
+        self.owner=owner
+        
+    def __str__(self):
+        return f" File Name:{self.name}\n Identifier:{self.identifier}\n File Type:{self.filetype}\n Location:{self.location}\n File Size:{self.size}\n Owner:{self.owner}"
+    
+class JPG(FileItem):                                       
+    def __init__(self,name,identifier,filetype,location,size,owner,datetime,aperturevalue,colorspace):
+        super().__init__(name,identifier,filetype,location,size,owner)
+        self.datetime = datetime
+        self.aperturevalue = aperturevalue
+        self.colorspace = colorspace
+        
+    def __str__(self):
+        return f" File Name:{self.name}\n Identifier:{self.identifier}\n File Type:{self.filetype}\n Location:{self.location}\n File Size:{self.size}\n Owner:{self.owner}\n Date and Time:{self.datetime}\n Aperture:{self.aperturevalue}\n Color Space:{self.colorspace}"
+    
+    
+class MP3(FileItem):
+    def __init__(self,name,identifier,filetype,location,size,owner,artist,genre):
+        super().__init__(name,identifier,filetype,location,size,owner)
+        self.artist=artist
+        self.genre=genre
+        
+    def __str__(self):
+        return f" File Name:{self.name}\n Identifier:{self.identifier}\n File Type:{self.filetype}\n Location:{self.location}\n File Size:{self.size}\n Owner:{self.owner}\n Artist:{self.artist}\n Genre:{self.genre}"
+    
+    
+class CSV(FileItem):
+    def __init__(self,name,identifier,filetype,location,size,has_header,description):
+        super().__init__(name,identifier,filetype,location,size,owner)
+        self.has_header=has_header
+        self.description=description
+    
+
+
