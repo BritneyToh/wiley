@@ -48,5 +48,7 @@ git push
 git pull
 git push
 
+## Move back to main branch
+git branch main
 
 
