@@ -1,0 +1,83 @@
+## DevOps Summary
+- Developers:
+  - Quick changes
+  - Latest features
+  - Embrace risk
+  
+- Operation Engineers:
+  - Cautious changes
+  - Stability
+  - Reliability
+  
+DEVOPS BRIDGE THE GAP BETWEEN DEVELOPERS AND OPERATION ENGINEERS!!!
+- Devops is not a tool or a title, it is a practice used in software development and the tools used in this practice,such as Git,Docker,Jenkins etc.
+are highly versatile to enable integration in a team for a smooth operation.   
+
+- DevOps relies on constant communication and updates: When did something break? Who needs to fix it?
+  - Communication channels:
+    - GitHub
+    - Slack
+    - Email
+    - SMS
+    - HipChat
+
+-  3 distinct features of DevOps:
+  - The principle of flow
+  - The principle of feedback
+  - The principle of continuous learning and experimentation
+  
+- Role of a DevOps Engineer:
+  - Write code
+  - Automate
+  - Develop
+  - Test
+  - Security
+  - Support
+  
+- 5 stages of Agile:
+  - Forming
+  - Storming
+  - Norming
+  - Performing
+  - Adjourning
+  
+- Types of environments:
+  - Development: Develop the app
+  - Testing: Test app across all servers 
+  - Production: New code changes tested on live traffic rather than in a staging environment
+  
+- DevOps Continuous pipelines:
+  - Ensures app and environment have continuous:
+    - Integration
+    - Delivery
+    - Deployment
+  
+- DevOps Tools:
+  - SCM: Revision/History control of code changes (can include configs, etc)
+      - Git
+      - GitHub, Bitbucket
+  - CI and Automation Servers: Build and test code, automate tasks, create pipelines
+      - Jenkins, TeamCity, Circle CI
+  - Automated Deployments: Automatically deploy, or repeatable deployments
+      - FluxCD, Puppet, Chef
+      - IBM U-Deploy, DeployBot, Shippable
+  - Cloud: Ability to use code to build everything, someone else manages the physical data center (virtualized hardware for environment)
+      - AWS, Azure, GCP, Digital Ocean, Rackspace
+  - Orchestration: Create environments, provision hosts and services, continuous updates of patches
+      - Ansible, Puppet, Chef, Terraform, Helm
+  - Containers: A way to package applications with all dependencies, overcome incorrect JVMs
+      - Often referred to as microservices
+      - Unlike Java - truly run everywhere
+      - Windows on Windows, Linux on Linux as long as you have the Docker service
+  - Container Services: Enterprise solution to managing containers and isolation. Easier networking for developers, faster deployments, quicker recovery
+      - Kubernetes or OpenShift
+  - Monitoring: Systems for identifying issues and observing what is happening in our environments
+      - Metrics, Logs, Events and Thresholds for alerts
+      - Tickets
+      - Asset management
+      - Releases
+      - Incidents
+      - Problems
+      - Knowledge base
+
+    
