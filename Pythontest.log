@@ -1,0 +1,26 @@
+Started by user Britney Toh 
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/Pythontest
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/BritneyToh/wiley.git
+ > git init /var/lib/jenkins/workspace/Pythontest # timeout=10
+Fetching upstream changes from https://github.com/BritneyToh/wiley.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.17.1'
+ > git fetch --tags --progress -- https://github.com/BritneyToh/wiley.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/BritneyToh/wiley.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision cbd9fc76650849c0bfdca2a59e13493130173c8a (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f cbd9fc76650849c0bfdca2a59e13493130173c8a # timeout=10
+Commit message: "Rename Pythontestfile.py to Pythontestfile"
+First time build. Skipping changelog.
+[Pythontest] $ /bin/sh -xe /tmp/jenkins6965933176342497675.sh
++ python3 Pythontestfile
+Even numbers: [2, 4, 6, 8]
+Odd numbers: [1, 3, 5, 7, 9]
+Finished: SUCCESS
