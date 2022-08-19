@@ -5,17 +5,19 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 
+                sh 'Pythontestfile'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh 'Pythontestfile'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh 'Pythontestfile'
             }
         }
     }
