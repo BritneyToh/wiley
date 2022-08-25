@@ -1,0 +1,73 @@
+What can observability data tell us?
+  - Why performance is degrading
+  - What dependency behaviors have changed
+  - Why app is failing
+  - Which part of app to fix
+
+Three parts of observability data:
+  - Logs: Record of past events
+    - Automatically created in the application or operating system
+    - Used for root cause analysis of why a metric changed or where an event began
+  - Metrics: Current quantifiable data about system components
+    - Compared to a defined baseline to analyse process status
+    - Trends in metric changes indicate underlying issue
+  - Traces: Capture activity for a business transaction
+    - Illustrates a complete transaction
+    - Hundreds of data points help to indicate errors, diagnose security threats and detect and isolate component or network issues
+
+Benefits of observability:
+  - Overview of complex system
+  - Faster feature release
+  - Observe impact of updates
+  
+Application Performance Monitoring:
+  - Purpose:
+    - Maintain uninterrupted business processes
+    - Monitor overall app
+    - Link app performance to business outcomes
+    - Isolate and fix errors before they affect end user
+    - Reduce mean time to repair 
+    
+  - Components:
+    1. Runtime app architecture discovery
+      - Analyse hardware and software used
+      - Anticipate potential problems (pattern recognition or performance)
+      
+    2. End-user experience monitoring
+      - Gather user-based performance data (from user's POV)
+      - Details on analysed client (location, OS, browser)
+      - Done through:
+        - Synthetic monitoring: Simulates an end user to determine problems BEFORE app is opened
+        - Agentless monitoring: Analyse network traffic DURING app usage
+        
+    3. User-defined transaction profilling
+      - Focus on recreaing specific user interactions to test and understand conditions that could lead to performance problems
+      - Trace business transaction movement across various components
+      - Reveal when and where events are occuring
+      - Optimise performance by identifying bottlenecks
+      
+    4. Component Monitoring
+      - Provides a deeper understanding of specific elements and pathways by tracking all components of IT infrastructure (servers, OS, middleware, app components, network components)
+      
+    5. Analytics and Reporting
+      - Ensure good ROI
+      - Translate data gathered into usable info
+      - Define performance baseline using historical and current data
+      - Identify areas of improvement
+      - Identify, locate and resolve performance issues 
+      - Predict and alleviate potential future issues
+      
+  - Critical APM metrics:
+    - Web performance monitoring
+    - System metrics
+    - App availability and uptime
+    - Request rates
+    - Customer satisfaction
+    - Error rates
+    - Number of instances
+      
+      
+      
+      
+      
+      
